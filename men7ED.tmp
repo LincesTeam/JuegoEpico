@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://qouagif38fa2"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_hu3st"]
+[ext_resource type="Texture2D" uid="uid://cpat8tthenfp2" path="res://wallhaven-1kgwpg.jpg" id="2_cyr7x"]
+[ext_resource type="Texture2D" uid="uid://cs6n0hke30dco" path="res://UI/button_jpg.png" id="3_mqdw2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qtehw"]
+texture = ExtResource("3_mqdw2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fvd2c"]
+texture = ExtResource("3_mqdw2")
+
+[node name="Menu" type="PanelContainer"]
+offset_top = 1.0
+offset_right = 426.0
+offset_bottom = 241.0
+script = ExtResource("1_hu3st")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_cyr7x")
+expand_mode = 1
+
+[node name="Bottons" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Bottons"]
+texture_filter = 2
+texture_repeat = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.803922, 0.34902, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Juego Epico v0.1"
+
+[node name="New game" type="Button" parent="Bottons"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.937255, 0.941176, 0.945098, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_qtehw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fvd2c")
+action_mode = 0
+text = "Nueva Partida"
+
+[node name="Options" type="Button" parent="Bottons"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.937255, 0.941176, 0.945098, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_qtehw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fvd2c")
+action_mode = 0
+text = "Opciones"
+
+[node name="Quit" type="Button" parent="Bottons"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.937255, 0.941176, 0.945098, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_qtehw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fvd2c")
+action_mode = 0
+text = "Salir"
+
+[connection signal="pressed" from="Bottons/New game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Bottons/Quit" to="." method="_on_quit_pressed"]
